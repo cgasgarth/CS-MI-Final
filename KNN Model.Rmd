@@ -6,8 +6,6 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
-library(glmnet)
-library(xgboost)
 library(irlba)
 library(stringi)
 library(FNN)
@@ -19,7 +17,6 @@ options(width = 76L)
 
 
 Read in the data
-
 ```{r}
 sounds <- read_csv("data/CSVs/all.csv")
 ```
@@ -39,8 +36,8 @@ sounds <- sounds %>%
 
 K-Kearest Neighbors; make the data matrix
 ```{r}
-mf <- model.frame(label ~ harm_one + harm_two + harm_three + harm_four + harm_five- 1,                   
-                  data = sounds)
+mf <- model.frame(label ~ harm_one + harm_two + harm_three + harm_four + 
+                    harm_five- 1, data = sounds)
 mt <- attr(mf, "terms")
 
 y <- model.response(mf)

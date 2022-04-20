@@ -5,6 +5,7 @@ output: html_notebook
 
 ```{r}
 library(tidyverse)
+options(dplyr.summarise.inform = FALSE)
 ```
 
 
@@ -15,6 +16,7 @@ dpiano <- read_csv("data/dPianoLong.csv")
 dguitar <- read_csv("data/dGuitarLong.csv")
 ```
 
+Assign labels to the models
 ```{r}
 e4piano <- e4piano %>%
   mutate(label = 0)
@@ -26,13 +28,13 @@ dguitar <- dguitar %>%
   mutate(label = 1)
 ```
 
+Create combinations to run KNN model on
 ```{r}
 e4 <- rbind(e4piano, e4guitar)
 d <- rbind(dpiano, dguitar)
 all <- rbind(e4, d)
 DgEp <- rbind(dguitar, e4piano)
 EgDp <- rbind(e4guitar, dpiano)
-
 ```
 
 ```{r}

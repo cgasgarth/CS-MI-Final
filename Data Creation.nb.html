@@ -217,23 +217,10 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5vcHRpb25zKGRwbHlyLnN1bW1hcmlzZS5pbmZvcm0gPSBGQUxTRSlcbmBgYCJ9 -->
+<pre class="r"><code>library(tidyverse)
+options(dplyr.summarise.inform = FALSE)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4xIOKUgOKUgFxu4pyTIGdncGxvdDIgMy4zLjUgICAgIOKckyBwdXJyciAgIDAuMy40XG7inJMgdGliYmxlICAzLjEuNiAgICAg4pyTIGRwbHlyICAgMS4wLjhcbuKckyB0aWR5ciAgIDEuMi4wICAgICDinJMgc3RyaW5nciAxLjQuMFxu4pyTIHJlYWRyICAgMi4xLjIgICAgIOKckyBmb3JjYXRzIDAuNS4xXG7ilIDilIAgQ29uZmxpY3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG54IGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbnggZHBseXI6OmxhZygpICAgIG1hc2tzIHN0YXRzOjpsYWcoKVxuIn0= -->
-<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
-  method         from
-  print.tbl_lazy     
-  print.tbl_sql      
-── Attaching packages ────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
-✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-✓ tibble  3.1.6     ✓ dplyr   1.0.8
-✓ tidyr   1.2.0     ✓ stringr 1.4.0
-✓ readr   2.1.2     ✓ forcats 0.5.1
-── Conflicts ───────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -288,6 +275,7 @@ dbl (5): harm_one, harm_two, harm_three, harm_four, harm_five
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Assign labels to the models</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZTRwaWFubyA8LSBlNHBpYW5vICU+JVxuICBtdXRhdGUobGFiZWwgPSAwKVxuZTRndWl0YXIgPC0gZTRndWl0YXIgJT4lXG4gIG11dGF0ZShsYWJlbCA9IDEpXG5kcGlhbm8gPC0gZHBpYW5vICU+JVxuICBtdXRhdGUobGFiZWwgPSAwKVxuZGd1aXRhciA8LSBkZ3VpdGFyICU+JVxuICBtdXRhdGUobGFiZWwgPSAxKVxuYGBgIn0= -->
@@ -302,6 +290,7 @@ dguitar &lt;- dguitar %&gt;%
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Create combinations to run KNN model on</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZTQgPC0gcmJpbmQoZTRwaWFubywgZTRndWl0YXIpXG5kIDwtIHJiaW5kKGRwaWFubywgZGd1aXRhcilcbmFsbCA8LSByYmluZChlNCwgZClcbkRnRXAgPC0gcmJpbmQoZGd1aXRhciwgZTRwaWFubylcbkVnRHAgPC0gcmJpbmQoZTRndWl0YXIsIGRwaWFubylcblxuYGBgIn0= -->
@@ -327,7 +316,7 @@ write_csv(all, &quot;data/EgDp.csv&quot;)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CmxpYnJhcnkodGlkeXZlcnNlKQpgYGAKCgpgYGB7cn0KZTRwaWFubyA8LSByZWFkX2NzdigiZGF0YS9lNHBpYW5vTG9uZy5jc3YiKQplNGd1aXRhciA8LSByZWFkX2NzdigiZGF0YS9lNGd1aXRhckxvbmcuY3N2IikKZHBpYW5vIDwtIHJlYWRfY3N2KCJkYXRhL2RQaWFub0xvbmcuY3N2IikKZGd1aXRhciA8LSByZWFkX2NzdigiZGF0YS9kR3VpdGFyTG9uZy5jc3YiKQpgYGAKCmBgYHtyfQplNHBpYW5vIDwtIGU0cGlhbm8gJT4lCiAgbXV0YXRlKGxhYmVsID0gMCkKZTRndWl0YXIgPC0gZTRndWl0YXIgJT4lCiAgbXV0YXRlKGxhYmVsID0gMSkKZHBpYW5vIDwtIGRwaWFubyAlPiUKICBtdXRhdGUobGFiZWwgPSAwKQpkZ3VpdGFyIDwtIGRndWl0YXIgJT4lCiAgbXV0YXRlKGxhYmVsID0gMSkKYGBgCgpgYGB7cn0KZTQgPC0gcmJpbmQoZTRwaWFubywgZTRndWl0YXIpCmQgPC0gcmJpbmQoZHBpYW5vLCBkZ3VpdGFyKQphbGwgPC0gcmJpbmQoZTQsIGQpCkRnRXAgPC0gcmJpbmQoZGd1aXRhciwgZTRwaWFubykKRWdEcCA8LSByYmluZChlNGd1aXRhciwgZHBpYW5vKQoKYGBgCgpgYGB7cn0Kd3JpdGVfY3N2KGU0LCAiZGF0YS9lNC5jc3YiKQp3cml0ZV9jc3YoZCwgImRhdGEvZC5jc3YiKQp3cml0ZV9jc3YoYWxsLCAiZGF0YS9hbGwuY3N2IikKd3JpdGVfY3N2KGFsbCwgImRhdGEvRGdFcC5jc3YiKQp3cml0ZV9jc3YoYWxsLCAiZGF0YS9FZ0RwLmNzdiIpCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CmxpYnJhcnkodGlkeXZlcnNlKQpvcHRpb25zKGRwbHlyLnN1bW1hcmlzZS5pbmZvcm0gPSBGQUxTRSkKYGBgCgoKYGBge3J9CmU0cGlhbm8gPC0gcmVhZF9jc3YoImRhdGEvZTRwaWFub0xvbmcuY3N2IikKZTRndWl0YXIgPC0gcmVhZF9jc3YoImRhdGEvZTRndWl0YXJMb25nLmNzdiIpCmRwaWFubyA8LSByZWFkX2NzdigiZGF0YS9kUGlhbm9Mb25nLmNzdiIpCmRndWl0YXIgPC0gcmVhZF9jc3YoImRhdGEvZEd1aXRhckxvbmcuY3N2IikKYGBgCgpBc3NpZ24gbGFiZWxzIHRvIHRoZSBtb2RlbHMKYGBge3J9CmU0cGlhbm8gPC0gZTRwaWFubyAlPiUKICBtdXRhdGUobGFiZWwgPSAwKQplNGd1aXRhciA8LSBlNGd1aXRhciAlPiUKICBtdXRhdGUobGFiZWwgPSAxKQpkcGlhbm8gPC0gZHBpYW5vICU+JQogIG11dGF0ZShsYWJlbCA9IDApCmRndWl0YXIgPC0gZGd1aXRhciAlPiUKICBtdXRhdGUobGFiZWwgPSAxKQpgYGAKCkNyZWF0ZSBjb21iaW5hdGlvbnMgdG8gcnVuIEtOTiBtb2RlbCBvbgpgYGB7cn0KZTQgPC0gcmJpbmQoZTRwaWFubywgZTRndWl0YXIpCmQgPC0gcmJpbmQoZHBpYW5vLCBkZ3VpdGFyKQphbGwgPC0gcmJpbmQoZTQsIGQpCkRnRXAgPC0gcmJpbmQoZGd1aXRhciwgZTRwaWFubykKRWdEcCA8LSByYmluZChlNGd1aXRhciwgZHBpYW5vKQpgYGAKCmBgYHtyfQp3cml0ZV9jc3YoZTQsICJkYXRhL2U0LmNzdiIpCndyaXRlX2NzdihkLCAiZGF0YS9kLmNzdiIpCndyaXRlX2NzdihhbGwsICJkYXRhL2FsbC5jc3YiKQp3cml0ZV9jc3YoYWxsLCAiZGF0YS9EZ0VwLmNzdiIpCndyaXRlX2NzdihhbGwsICJkYXRhL0VnRHAuY3N2IikKYGBgCgo=</div>
 
 
 
