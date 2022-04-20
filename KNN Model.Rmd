@@ -1,0 +1,65 @@
+---
+title: "KNN Model"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(glmnet)
+library(xgboost)
+library(irlba)
+library(stringi)
+library(FNN)
+theme_set(theme_minimal())
+options(dplyr.summarise.inform = FALSE)
+options(readr.show_col_types = FALSE)
+options(width = 76L)
+```
+
+
+Read in the data
+
+```{r}
+sounds <- read_csv("sounds_data.csv")
+sounds <- select(sounds, label, harm_one, harm_two, harm_three)
+sounds
+```
+
+Create training ID's for the data
+```{r}
+set.seed(1)
+
+sounds <- sounds %>%
+  group_by(label) %>%
+  mutate(rnum = runif(n())) %>%
+  mutate(train_id = if_else(rnum < quantile(rnum, 0.6), "train", "valid")) %>%
+  select(-rnum) %>%
+  ungroup()
+
+```
+
+
+K-Kearest Neighbors; make the data matrix
+```{r}
+mf <- model.frame(label ~ harm_one + harm_two + harm_three - 1,                   
+                  data = sounds)
+mt <- attr(mf, "terms")
+mt
+y <- model.response(mf)
+X <- model.matrix(mt, mf)
+
+X_train <- X[sounds$train_id == "train",]
+y_train <- y[sounds$train_id == "train"]
+```
+
+run the model
+```{r}
+pred <- knn.reg(X_train, X, y_train, k = 4)$pred
+```
+
+Show the error rate
+```{r}
+sqrt(tapply((sounds$label - pred)**2, sounds$train_id, mean))
+```
+
