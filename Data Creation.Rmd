@@ -1,0 +1,45 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+e4piano <- read_csv("data/e4pianoLong.csv")
+e4guitar <- read_csv("data/e4guitarLong.csv")
+dpiano <- read_csv("data/dPianoLong.csv")
+dguitar <- read_csv("data/dGuitarLong.csv")
+```
+
+```{r}
+e4piano <- e4piano %>%
+  mutate(label = 0)
+e4guitar <- e4guitar %>%
+  mutate(label = 1)
+dpiano <- dpiano %>%
+  mutate(label = 0)
+dguitar <- dguitar %>%
+  mutate(label = 1)
+```
+
+```{r}
+e4 <- rbind(e4piano, e4guitar)
+d <- rbind(dpiano, dguitar)
+all <- rbind(e4, d)
+DgEp <- rbind(dguitar, e4piano)
+EgDp <- rbind(e4guitar, dpiano)
+
+```
+
+```{r}
+write_csv(e4, "data/e4.csv")
+write_csv(d, "data/d.csv")
+write_csv(all, "data/all.csv")
+write_csv(all, "data/DgEp.csv")
+write_csv(all, "data/EgDp.csv")
+```
+

@@ -21,9 +21,7 @@ options(width = 76L)
 Read in the data
 
 ```{r}
-sounds <- read_csv("sounds_data.csv")
-sounds <- select(sounds, label, harm_one, harm_two, harm_three)
-sounds
+sounds <- read_csv("data/CSVs/all.csv")
 ```
 
 Create training ID's for the data
@@ -36,16 +34,15 @@ sounds <- sounds %>%
   mutate(train_id = if_else(rnum < quantile(rnum, 0.6), "train", "valid")) %>%
   select(-rnum) %>%
   ungroup()
-
 ```
 
 
 K-Kearest Neighbors; make the data matrix
 ```{r}
-mf <- model.frame(label ~ harm_one + harm_two + harm_three - 1,                   
+mf <- model.frame(label ~ harm_one + harm_two + harm_three + harm_four + harm_five- 1,                   
                   data = sounds)
 mt <- attr(mf, "terms")
-mt
+
 y <- model.response(mf)
 X <- model.matrix(mt, mf)
 
@@ -55,7 +52,14 @@ y_train <- y[sounds$train_id == "train"]
 
 run the model
 ```{r}
-pred <- knn.reg(X_train, X, y_train, k = 4)$pred
+pred <- knn.reg(X_train, X, y_train, k = 11)$pred
+# for (i in 1:length(pred)) {
+#   if(pred[[i]] < .5){
+#     pred[[i]] = 0
+#   }else{
+#       pred[[i]] = 1
+#     }
+# }
 ```
 
 Show the error rate
