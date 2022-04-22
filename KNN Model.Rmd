@@ -18,7 +18,7 @@ options(width = 76L)
 
 Read in the data
 ```{r}
-sounds <- read_csv("data/CSVs/all.csv")
+sounds <- read_csv("data/CSVs/e4.csv")
 ```
 
 Create training ID's for the data
@@ -28,16 +28,18 @@ set.seed(1)
 sounds <- sounds %>%
   group_by(label) %>%
   mutate(rnum = runif(n())) %>%
-  mutate(train_id = if_else(rnum < quantile(rnum, 0.6), "train", "valid")) %>%
+  mutate(train_id = if_else(rnum < quantile(rnum, 0.7), "train", "valid")) %>%
   select(-rnum) %>%
   ungroup()
+
+
 ```
 
 
 K-Kearest Neighbors; make the data matrix
 ```{r}
 mf <- model.frame(label ~ harm_one + harm_two + harm_three + harm_four + 
-                    harm_five- 1, data = sounds)
+                    harm_five - 1, data = sounds)
 mt <- attr(mf, "terms")
 
 y <- model.response(mf)
@@ -64,3 +66,51 @@ Show the error rate
 sqrt(tapply((sounds$label - pred)**2, sounds$train_id, mean))
 ```
 
+
+Testing D notes on a model only trained on e notes
+
+Read in the data
+```{r}
+soundsE <- read_csv("data/CSVs/e4.csv")
+soundsD <- read_csv("data/CSVs/d.csv")
+```
+
+Create training ID's for the data
+```{r}
+soundsE <- soundsE %>%
+  mutate(train_id = "train")
+soundsD <-  soundsD %>%
+  mutate(train_id = "valid")
+sounds <- rbind(soundsE, soundsD)
+```
+
+
+K-Kearest Neighbors; make the data matrix
+```{r}
+mf <- model.frame(label ~ harm_one + harm_two + harm_three + harm_four + 
+                    harm_five - 1, data = sounds)
+mt <- attr(mf, "terms")
+
+y <- model.response(mf)
+X <- model.matrix(mt, mf)
+
+X_train <- X[sounds$train_id == "train",]
+y_train <- y[sounds$train_id == "train"]
+```
+
+run the model
+```{r}
+pred <- knn.reg(X_train, X, y_train, k = 11)$pred
+# for (i in 1:length(pred)) {
+#   if(pred[[i]] < .5){
+#     pred[[i]] = 0
+#   }else{
+#       pred[[i]] = 1
+#     }
+# }
+```
+
+Show the error rate
+```{r}
+sqrt(tapply((sounds$label - pred)**2, sounds$train_id, mean))
+```

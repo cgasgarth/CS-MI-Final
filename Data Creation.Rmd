@@ -10,10 +10,10 @@ options(dplyr.summarise.inform = FALSE)
 
 
 ```{r}
-e4piano <- read_csv("data/e4pianoLong.csv")
-e4guitar <- read_csv("data/e4guitarLong.csv")
-dpiano <- read_csv("data/dPianoLong.csv")
-dguitar <- read_csv("data/dGuitarLong.csv")
+e4piano <- read_csv("data/CSVs/e4pianoLong.csv")
+e4guitar <- read_csv("data/CSVs/e4guitarLong.csv")
+dpiano <- read_csv("data/CSVs/dPianoLong.csv")
+dguitar <- read_csv("data/CSVs/dGuitarLong.csv")
 ```
 
 Assign labels to the models
@@ -38,10 +38,10 @@ EgDp <- rbind(e4guitar, dpiano)
 ```
 
 ```{r}
-write_csv(e4, "data/e4.csv")
-write_csv(d, "data/d.csv")
-write_csv(all, "data/all.csv")
-write_csv(all, "data/DgEp.csv")
-write_csv(all, "data/EgDp.csv")
+write_csv(e4, "data/CSVs/e4.csv")
+write_csv(d, "data/CSVs/d.csv")
+write_csv(all, "data/CSVs/all.csv")
+write_csv(all, "data/CSVs/DgEp.csv")
+write_csv(all, "data/CSVs/EgDp.csv")
 ```
 
