@@ -31,8 +31,6 @@ sounds <- sounds %>%
   mutate(train_id = if_else(rnum < quantile(rnum, 0.7), "train", "valid")) %>%
   select(-rnum) %>%
   ungroup()
-
-
 ```
 
 
